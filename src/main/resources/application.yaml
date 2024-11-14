@@ -1,0 +1,13 @@
+insurance:
+  japan:
+    currency: "????"
+    robbery_coefficient: 0.01
+    medical_coefficient: 0.015
+    robbery_fixed: 10000
+    medical_fixed: 12000
+  brazil:
+    currency: "????"
+    robbery_coefficient: 0.05
+    medical_coefficient: 0.03
+    robbery_fixed: 300
+    medical_fixed: 800
