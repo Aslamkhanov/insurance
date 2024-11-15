@@ -10,8 +10,8 @@ import java.math.BigDecimal;
 public class JapanProperty {
     private String country;
     private String currency;
-    private BigDecimal ROBBERY_COEFFICIENT;
-    private BigDecimal MEDICAL_CASE_RATIO;
-    private BigDecimal TEN_THOUSAND;
-    private BigDecimal TWELVE_THOUSAND;
+    private BigDecimal robberyCoefficient;
+    private BigDecimal medicalCaseRatio;
+    private BigDecimal tenThousand;
+    private BigDecimal twelveThousand;
 }

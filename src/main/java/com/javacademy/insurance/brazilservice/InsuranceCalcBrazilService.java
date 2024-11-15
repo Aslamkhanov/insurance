@@ -14,12 +14,12 @@ public class InsuranceCalcBrazilService implements InsuranceCalcService {
     @Override
     public BigDecimal insuranceCalcService(BigDecimal coverageAmount, TypeInsurance typeInsurance) {
         if (typeInsurance.equals(ROBBERY_PROTECTION)) {
-            return coverageAmount = coverageAmount.multiply(brazilProperty.getROBBERY_COEFFICIENT())
-                    .add(brazilProperty.getTHREE_HUNDRED());
+            return coverageAmount = coverageAmount.multiply(brazilProperty.getRobberyCoefficient())
+                    .add(brazilProperty.getThreeHundred());
 
         } else if (typeInsurance.equals(HEALTH_INSURANCE)) {
-            return coverageAmount = coverageAmount.multiply(brazilProperty.getMEDICAL_CASE_RATIO())
-                    .add(brazilProperty.getEIGHT_HUNDRED());
+            return coverageAmount = coverageAmount.multiply(brazilProperty.getMedicalCaseRatio())
+                    .add(brazilProperty.getEightHundred());
         } else {
             throw new IllegalArgumentException("У нас нет такого типа " + typeInsurance + " страхования");
         }
