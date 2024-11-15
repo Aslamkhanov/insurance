@@ -1,0 +1,7 @@
+insurance:
+  country: "JAPAN"
+  currency: "YEN"
+  ROBBERY_COEFFICIENT: 0.01
+  MEDICAL_CASE_RATIO: 0.015
+  TEN_THOUSAND: 10_000
+  TWELVE_THOUSAND: 12_000

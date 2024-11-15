@@ -1,4 +1,4 @@
-package com.javacademy.insurance;
+package com.javacademy.insurance.services;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

@@ -1,40 +1,46 @@
-package com.javacademy.insurance.config.japan;
+package com.javacademy.insurance.japanservice;
 
-import com.javacademy.insurance.*;
 import com.javacademy.insurance.enums.TypeInsurance;
+import com.javacademy.insurance.exceptions.ContractNotFoundException;
 import com.javacademy.insurance.interfaces.InsuranceService;
+import com.javacademy.insurance.services.Archive;
+import com.javacademy.insurance.services.ContractNumberGenerator;
+import com.javacademy.insurance.services.InsuranceContract;
 
 import java.math.BigDecimal;
 
 import static com.javacademy.insurance.enums.ContractStatus.PAID_CONTRACT;
 import static com.javacademy.insurance.enums.ContractStatus.UNPAID_CONTRACT;
-import static com.javacademy.insurance.enums.Country.JAPAN;
-import static com.javacademy.insurance.enums.Currency.YEN;
+
 
 public class InsuranceServiceJapan implements InsuranceService {
     private Archive archive;
+    private JapanProperty japanProperty;
+
 
     @Override
     public InsuranceContract insuranceOffer(BigDecimal coverageAmount,
-                                            ClientsFullName clientsFullName,
+                                            String clientsFullName,
                                             TypeInsurance typeInsurance) {
         InsuranceCalcJapanService insuranceCalcJapanService = new InsuranceCalcJapanService();
         BigDecimal calcServicePrice = insuranceCalcJapanService.insuranceCalcService(coverageAmount, typeInsurance);
         String contractNumber = ContractNumberGenerator.generateContractNumber();
 
-        return new InsuranceContract(contractNumber,
-                calcServicePrice, coverageAmount, YEN, clientsFullName,
-                JAPAN, typeInsurance, UNPAID_CONTRACT);
+        InsuranceContract insuranceContract = new InsuranceContract(contractNumber,
+                calcServicePrice, coverageAmount, japanProperty.getCurrency(), clientsFullName,
+                japanProperty.getCountry(), typeInsurance, UNPAID_CONTRACT);
+        archive.addArchive(insuranceContract);
+        return insuranceContract;
     }
 
     @Override
-    public InsuranceContract insurancePayment(String contractNumber) {
+    public InsuranceContract insurancePayment(String contractNumber) throws ContractNotFoundException {
         if (archive.getArchiveOfContracts().containsKey(contractNumber)) {
             InsuranceContract insuranceContract = archive.getArchiveOfContracts().get(contractNumber);
             insuranceContract.setContractStatus(PAID_CONTRACT);
             return insuranceContract;
         } else {
-            throw new IllegalArgumentException("Договор с номером " + contractNumber + " не найден.");
+            throw new ContractNotFoundException("Договор с номером " + contractNumber + " не найден.");
         }
     }
 }

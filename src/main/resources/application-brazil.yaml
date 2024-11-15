@@ -1,0 +1,7 @@
+insurance:
+  country: "BRAZIL"
+  currency: "REAL"
+  ROBBERY_COEFFICIENT: 0.05
+  MEDICAL_CASE_RATIO: 0.03
+  THREE_HUNDRED: 300
+  EIGHT_HUNDRED: 800
