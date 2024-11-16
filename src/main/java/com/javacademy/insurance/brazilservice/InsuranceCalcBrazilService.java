@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 import static com.javacademy.insurance.enums.TypeInsurance.HEALTH_INSURANCE;
 import static com.javacademy.insurance.enums.TypeInsurance.ROBBERY_PROTECTION;
 @RequiredArgsConstructor
-@EnableConfigurationProperties(value = BrazilProperty.class)
 public class InsuranceCalcBrazilService implements InsuranceCalcService {
     private final BrazilProperty brazilProperty;
 

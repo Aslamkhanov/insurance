@@ -14,7 +14,6 @@ import java.math.BigDecimal;
 import static com.javacademy.insurance.enums.ContractStatus.PAID_CONTRACT;
 import static com.javacademy.insurance.enums.ContractStatus.UNPAID_CONTRACT;
 
-@AllArgsConstructor
 public class InsuranceServiceJapan implements InsuranceService {
     private Archive archive;
     private JapanProperty japanProperty;
@@ -24,7 +23,7 @@ public class InsuranceServiceJapan implements InsuranceService {
     public InsuranceContract insuranceOffer(BigDecimal coverageAmount,
                                             String clientsFullName,
                                             TypeInsurance typeInsurance) {
-        InsuranceCalcJapanService insuranceCalcJapanService = new InsuranceCalcJapanService(japanProperty);
+        InsuranceCalcJapanService insuranceCalcJapanService = new InsuranceCalcJapanService(new JapanProperty());
         BigDecimal calcServicePrice = insuranceCalcJapanService.insuranceCalcService(coverageAmount, typeInsurance);
         String contractNumber = ContractNumberGenerator.generateContractNumber();
 

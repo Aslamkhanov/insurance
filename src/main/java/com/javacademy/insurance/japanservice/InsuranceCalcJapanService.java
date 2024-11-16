@@ -2,17 +2,15 @@ package com.javacademy.insurance.japanservice;
 
 import com.javacademy.insurance.enums.TypeInsurance;
 import com.javacademy.insurance.interfaces.InsuranceCalcService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import lombok.AllArgsConstructor;
 
 import java.math.BigDecimal;
 
 import static com.javacademy.insurance.enums.TypeInsurance.HEALTH_INSURANCE;
 import static com.javacademy.insurance.enums.TypeInsurance.ROBBERY_PROTECTION;
-@RequiredArgsConstructor
-@EnableConfigurationProperties(value = JapanProperty.class)
+@AllArgsConstructor
 public class InsuranceCalcJapanService implements InsuranceCalcService {
-    private final JapanProperty japanProperty;
+    private JapanProperty japanProperty;
 
     @Override
     public BigDecimal insuranceCalcService(BigDecimal coverageAmount, TypeInsurance typeInsurance) {

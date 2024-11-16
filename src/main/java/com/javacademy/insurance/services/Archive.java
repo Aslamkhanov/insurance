@@ -2,12 +2,14 @@ package com.javacademy.insurance.services;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
 
 @Getter
 @Slf4j
+@Component
 public class Archive {
     private Map<String, InsuranceContract> archiveOfContracts;
 

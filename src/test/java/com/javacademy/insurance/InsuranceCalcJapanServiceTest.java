@@ -19,7 +19,7 @@ public class InsuranceCalcJapanServiceTest {
     @Test
     public void insuranceCalcServiceSuccess() {
         JapanProperty japanProperty = new JapanProperty();
-        InsuranceCalcJapanService insuranceCalcJapanService = new InsuranceCalcJapanService(japanProperty);
+        InsuranceCalcJapanService insuranceCalcJapanService = new InsuranceCalcJapanService(new JapanProperty());
         BigDecimal result = insuranceCalcJapanService.insuranceCalcService(
                 BigDecimal.valueOf(1_000_000), TypeInsurance.ROBBERY_PROTECTION);
         BigDecimal expected = BigDecimal.valueOf(20_000);
