@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.math.BigDecimal;
 
-@ConfigurationProperties(prefix = "insurance")
+@ConfigurationProperties(prefix = "insurance-brazil")
 @Data
 public class BrazilProperty {
     private String country;
