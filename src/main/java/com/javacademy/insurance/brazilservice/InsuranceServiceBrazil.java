@@ -6,12 +6,13 @@ import com.javacademy.insurance.interfaces.InsuranceService;
 import com.javacademy.insurance.services.Archive;
 import com.javacademy.insurance.services.ContractNumberGenerator;
 import com.javacademy.insurance.services.InsuranceContract;
+import lombok.AllArgsConstructor;
 
 import java.math.BigDecimal;
 
 import static com.javacademy.insurance.enums.ContractStatus.PAID_CONTRACT;
 import static com.javacademy.insurance.enums.ContractStatus.UNPAID_CONTRACT;
-
+@AllArgsConstructor
 public class InsuranceServiceBrazil implements InsuranceService {
     private Archive archive;
     private BrazilProperty brazilProperty;
@@ -21,7 +22,7 @@ public class InsuranceServiceBrazil implements InsuranceService {
                                             String clientsFullName,
                                             TypeInsurance typeInsurance) {
 
-        InsuranceCalcBrazilService insuranceCalcBrazilService = new InsuranceCalcBrazilService();
+        InsuranceCalcBrazilService insuranceCalcBrazilService = new InsuranceCalcBrazilService(brazilProperty);
         BigDecimal calcServicePrice = insuranceCalcBrazilService.insuranceCalcService(coverageAmount, typeInsurance);
         String contractNumber = ContractNumberGenerator.generateContractNumber();
 

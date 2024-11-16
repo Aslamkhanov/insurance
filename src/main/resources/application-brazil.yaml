@@ -1,4 +1,4 @@
-insurance-brazil:
+insurance:
   country: "BRAZIL"
   currency: "REAL"
   robbery-coefficient: 0.05
