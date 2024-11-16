@@ -3,5 +3,3 @@ insurance:
   currency: "REAL"
   robbery-coefficient: 0.05
   medical-case-ratio: 0.03
-  three-hundred: 300
-  eight-hundred: 800

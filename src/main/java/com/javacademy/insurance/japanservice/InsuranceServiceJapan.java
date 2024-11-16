@@ -8,22 +8,28 @@ import com.javacademy.insurance.services.ContractNumberGenerator;
 import com.javacademy.insurance.services.InsuranceContract;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
 import static com.javacademy.insurance.enums.ContractStatus.PAID_CONTRACT;
 import static com.javacademy.insurance.enums.ContractStatus.UNPAID_CONTRACT;
-
+@RequiredArgsConstructor
+@Profile("japan")
+@EnableConfigurationProperties(value = JapanProperty.class)
+@Component
 public class InsuranceServiceJapan implements InsuranceService {
-    private Archive archive;
-    private JapanProperty japanProperty;
+    private final Archive archive;
+    private final JapanProperty japanProperty;
+    private final InsuranceCalcJapanService insuranceCalcJapanService;
 
 
     @Override
     public InsuranceContract insuranceOffer(BigDecimal coverageAmount,
                                             String clientsFullName,
                                             TypeInsurance typeInsurance) {
-        InsuranceCalcJapanService insuranceCalcJapanService = new InsuranceCalcJapanService(new JapanProperty());
         BigDecimal calcServicePrice = insuranceCalcJapanService.insuranceCalcService(coverageAmount, typeInsurance);
         String contractNumber = ContractNumberGenerator.generateContractNumber();
 

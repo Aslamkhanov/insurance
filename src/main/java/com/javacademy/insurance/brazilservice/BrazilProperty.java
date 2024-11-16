@@ -12,6 +12,4 @@ public class BrazilProperty {
     private String currency;
     private BigDecimal robberyCoefficient;
     private BigDecimal medicalCaseRatio;
-    private BigDecimal threeHundred;
-    private BigDecimal eightHundred;
 }

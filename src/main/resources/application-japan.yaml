@@ -3,5 +3,3 @@ insurance:
   currency: "YEN"
   robbery-coefficient: 0.01
   medical-case-ratio: 0.015
-  ten-thousand: 10000
-  twelve-thousand: 12000

@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -11,28 +12,10 @@ import java.util.Map;
 @Slf4j
 @Component
 public class Archive {
-    private Map<String, InsuranceContract> archiveOfContracts;
+    private Map<String, InsuranceContract> archiveOfContracts = new HashMap<>();
 
     public void addArchive(InsuranceContract insuranceContract) {
-        if (archiveOfContracts.containsKey(insuranceContract.getContractNumber())) {
-            throw new IllegalArgumentException("Номер контракта " +
-                    insuranceContract.getContractNumber() + " уже существует.");
-        }
         archiveOfContracts.put(insuranceContract.getContractNumber(), insuranceContract);
         log.info("Контракт № {}, успешно добавлен ", insuranceContract.getContractNumber());
-    }
-
-    public void removeContract(String contractNumber) {
-        archiveOfContracts.remove(contractNumber);
-        log.info("Контракт № {}, удален", contractNumber);
-    }
-
-    public InsuranceContract getContract(String contractNumber) {
-        if (archiveOfContracts.containsKey(contractNumber)) {
-            InsuranceContract insuranceContract = archiveOfContracts.get(contractNumber);
-            return insuranceContract;
-        }
-        log.info("Страховки с номером: {} , нет в архиве", contractNumber);
-        return null;
     }
 }
