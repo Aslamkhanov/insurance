@@ -6,5 +6,5 @@ import java.math.BigDecimal;
 
 @FunctionalInterface
 public interface InsuranceCalcService {
-    public BigDecimal insuranceCalcService(BigDecimal coverageAmount, TypeInsurance typeInsurance);
+    public BigDecimal totalCostOfInsurance(BigDecimal coverageAmount, TypeInsurance typeInsurance);
 }

@@ -24,14 +24,14 @@ public class InsuranceServiceJapan implements InsuranceService {
     private final Archive archive;
     private final JapanProperty japanProperty;
     private final InsuranceCalcJapanService insuranceCalcJapanService;
-
+    private final ContractNumberGenerator contractNumberGenerator;
 
     @Override
     public InsuranceContract insuranceOffer(BigDecimal coverageAmount,
                                             String clientsFullName,
                                             TypeInsurance typeInsurance) {
-        BigDecimal calcServicePrice = insuranceCalcJapanService.insuranceCalcService(coverageAmount, typeInsurance);
-        String contractNumber = ContractNumberGenerator.generateContractNumber();
+        BigDecimal calcServicePrice = insuranceCalcJapanService.totalCostOfInsurance(coverageAmount, typeInsurance);
+        String contractNumber = contractNumberGenerator.generateContractNumber();
 
         InsuranceContract insuranceContract = new InsuranceContract(contractNumber,
                 calcServicePrice, coverageAmount, japanProperty.getCurrency(), clientsFullName,

@@ -21,7 +21,7 @@ public class InsuranceCalcBrazilService implements InsuranceCalcService {
     private final static BigDecimal EIGHT_HUNDRED = BigDecimal.valueOf(800);
 
     @Override
-    public BigDecimal insuranceCalcService(BigDecimal coverageAmount, TypeInsurance typeInsurance) {
+    public BigDecimal totalCostOfInsurance(BigDecimal coverageAmount, TypeInsurance typeInsurance) {
         if (typeInsurance.equals(ROBBERY_PROTECTION)) {
             return coverageAmount = coverageAmount.multiply(brazilProperty.getRobberyCoefficient())
                     .add(THREE_HUNDRED);

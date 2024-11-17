@@ -20,7 +20,7 @@ public class InsuranceCalcJapanService implements InsuranceCalcService {
     private final static BigDecimal TWELVE_THOUSAND = BigDecimal.valueOf(12_000);
 
     @Override
-    public BigDecimal insuranceCalcService(BigDecimal coverageAmount, TypeInsurance typeInsurance) {
+    public BigDecimal totalCostOfInsurance(BigDecimal coverageAmount, TypeInsurance typeInsurance) {
         if (typeInsurance.equals(ROBBERY_PROTECTION)) {
             return coverageAmount.multiply(japanProperty.getRobberyCoefficient())
                     .add(TEN_THOUSAND);
