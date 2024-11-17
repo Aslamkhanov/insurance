@@ -18,4 +18,9 @@ public class Archive {
         archiveOfContracts.put(insuranceContract.getContractNumber(), insuranceContract);
         log.info("Контракт № {}, успешно добавлен ", insuranceContract.getContractNumber());
     }
+
+    public InsuranceContract getContract(String number) {
+        InsuranceContract contract = archiveOfContracts.get(number);
+        return contract;
+    }
 }

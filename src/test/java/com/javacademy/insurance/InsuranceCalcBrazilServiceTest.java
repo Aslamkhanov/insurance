@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 @SpringBootTest
 @ActiveProfiles("brazil")
 public class InsuranceCalcBrazilServiceTest {
+    private static final int ZERO = 0;
     @Autowired
     private InsuranceCalcBrazilService insuranceCalcBrazilService;
 
@@ -24,8 +25,9 @@ public class InsuranceCalcBrazilServiceTest {
                 BigDecimal.valueOf(50_000), TypeInsurance.ROBBERY_PROTECTION);
         BigDecimal expected = BigDecimal.valueOf(2800);
         int result = expected.compareTo(calcServiceResult);
-        Assertions.assertEquals(0, result);
+        Assertions.assertEquals(ZERO, result);
     }
+
     @Test
     @DisplayName("Расчет стоимости при мед страховке для Бразилии")
     public void insuranceCalculationForMedicalInsuranceBrazilSuccess() {
@@ -33,7 +35,7 @@ public class InsuranceCalcBrazilServiceTest {
                 BigDecimal.valueOf(200_000), TypeInsurance.HEALTH_INSURANCE);
         BigDecimal expected = BigDecimal.valueOf(6800);
         int result = expected.compareTo(calcServiceResult);
-        Assertions.assertEquals(0, result);
+        Assertions.assertEquals(ZERO, result);
     }
 
 

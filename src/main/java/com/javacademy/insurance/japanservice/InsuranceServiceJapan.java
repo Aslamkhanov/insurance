@@ -6,7 +6,6 @@ import com.javacademy.insurance.interfaces.InsuranceService;
 import com.javacademy.insurance.services.Archive;
 import com.javacademy.insurance.services.ContractNumberGenerator;
 import com.javacademy.insurance.services.InsuranceContract;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Profile;
@@ -16,6 +15,7 @@ import java.math.BigDecimal;
 
 import static com.javacademy.insurance.enums.ContractStatus.PAID_CONTRACT;
 import static com.javacademy.insurance.enums.ContractStatus.UNPAID_CONTRACT;
+
 @RequiredArgsConstructor
 @Profile("japan")
 @EnableConfigurationProperties(value = JapanProperty.class)

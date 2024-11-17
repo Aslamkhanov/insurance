@@ -15,9 +15,9 @@ import static com.javacademy.insurance.enums.TypeInsurance.ROBBERY_PROTECTION;
 @Profile("japan")
 @Component
 public class InsuranceCalcJapanService implements InsuranceCalcService {
-    private final JapanProperty japanProperty;
     private final static BigDecimal TEN_THOUSAND = BigDecimal.valueOf(10_000);
     private final static BigDecimal TWELVE_THOUSAND = BigDecimal.valueOf(12_000);
+    private final JapanProperty japanProperty;
 
     @Override
     public BigDecimal totalCostOfInsurance(BigDecimal coverageAmount, TypeInsurance typeInsurance) {
